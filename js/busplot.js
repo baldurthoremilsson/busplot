@@ -86,7 +86,7 @@ var BusControl = L.Control.extend({
 
 window.addEventListener('load', function() {
   // create a map in the "map" div, set the view to a given place and zoom
-  var map = L.map('map').setView([64.105491, -21.896149], 12);
+  var map = L.map('map').setView([64.135491, -21.896149], 12);
 
   // add an OpenStreetMap tile layer
   L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
