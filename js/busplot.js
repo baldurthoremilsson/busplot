@@ -1,5 +1,4 @@
 var BASEURL = BASEURL || '';
-var LIMIT = 500;
 
 var ICONS = {
   red: L.icon({iconUrl: 'img/reddot.png'}),
@@ -95,7 +94,7 @@ window.addEventListener('load', function() {
     }).addTo(map);
 
 
-  $.getJSON(BASEURL + 'points.php?limit=' + LIMIT, function(data) {
+  $.getJSON(BASEURL + 'points.php', function(data) {
     var layers = {};
     var busControl = new BusControl();
     for(var routeId in data) {
