@@ -151,13 +151,24 @@ var AboutControl = L.Control.extend({
     this.openPopup();
 
     var container = L.DomUtil.create('div', 'leaflet-bar');
-    var button = this._createButton('?', 'Um síðuna', '', container, this.openPopup.bind(this));
+    var button = this._createButton('?', 'Um síðuna', '', container, this.togglePopup.bind(this));
     return container;
   },
 
   openPopup: function() {
     this.popup.setLatLng(this.map.getCenter());
     this.popup.openOn(this.map);
+  },
+
+  closePopup: function() {
+    this.map.closePopup(this.popup);
+  },
+
+  togglePopup: function() {
+    if(this.popup.visible)
+      this.closePopup();
+    else
+      this.openPopup();
   },
 
   _createButton: L.Control.Zoom.prototype._createButton,
