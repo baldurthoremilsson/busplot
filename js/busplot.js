@@ -43,7 +43,7 @@ var BusControl = L.Control.extend({
 
   addRoute: function(routeId, layer) {
     var self = this;
-    var button = this._createButton(routeId, 'Toggle ' + routeId, '', this.getControlGroup(routeId), function() {
+    var button = this._createButton(routeId, 'Sýna leið ' + routeId, '', this.getControlGroup(routeId), function() {
       self.setLayer(layer);
       self.activeButton.classList.remove('active');
       self.activeButton = this;
