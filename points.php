@@ -12,7 +12,8 @@ function pointsFromDB() {
 
   while($routeRow = pg_fetch_assoc($routeResults)) {
     $routeId = $routeRow['route'];
-    $query = "SELECT lat, lon FROM realtime WHERE route='".pg_escape_string($routeId)."' ORDER BY RANDOM() LIMIT 500";
+    $query = "SELECT lat, lon FROM realtime WHERE route='".pg_escape_string($routeId)."' ".
+      "AND date > current_date - interval '7' day ORDER BY RANDOM() LIMIT 500";
     $results = pg_query($connection, $query);
     $route = array();
     while($row = pg_fetch_assoc($results)) {
