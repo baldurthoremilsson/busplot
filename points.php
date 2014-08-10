@@ -53,6 +53,9 @@ function getPoints() {
   return $points;
 }
 
-header('Access-Control-Allow-Origin: *');
+if($DEBUG == true) {
+  header('Access-Control-Allow-Origin: *');
+}
+
 header('Content-type: application/json');
 echo json_encode(getPoints());
