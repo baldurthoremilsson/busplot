@@ -2,7 +2,9 @@
 
 require_once("data.php");
 
-$CACHE_KEY = 'busplot';
+function getCacheKey() {
+  return 'busplot:'.date('Y-m-d');
+}
 
 function pointsFromDB() {
   $connection = getDBConnection();
@@ -25,24 +27,22 @@ function pointsFromDB() {
 }
 
 function pointsFromMemcache() {
-  global $CACHE_KEY;
   $memcache = new Memcache;
   $connected = $memcache->connect('localhost', 11211);
   if(!$connected)
     return false;
 
-  $results = $memcache->get($CACHE_KEY);
+  $results = $memcache->get(getCacheKey());
   return $results;
 }
 
 function pointsToMemcache($points) {
-  global $CACHE_KEY;
   $memcache = new Memcache;
   $connected = $memcache->connect('localhost', 11211);
   if(!$connected)
     return;
 
-  $memcache->set($CACHE_KEY, $points);
+  $memcache->set(getCacheKey(), $points);
 }
 
 function getPoints() {
