@@ -2,10 +2,10 @@ var BASEURL = BASEURL || '';
 var LIMIT = 500;
 
 var ICONS = {
-  red: L.icon({iconUrl: 'reddot.png'}),
-  green: L.icon({iconUrl: 'greendot.png'}),
-  cyan: L.icon({iconUrl: 'cyandot.png'}),
-  blue: L.icon({iconUrl: 'bluedot.png'}),
+  red: L.icon({iconUrl: 'img/reddot.png'}),
+  green: L.icon({iconUrl: 'img/greendot.png'}),
+  cyan: L.icon({iconUrl: 'img/cyandot.png'}),
+  blue: L.icon({iconUrl: 'img/bluedot.png'}),
 };
 
 
